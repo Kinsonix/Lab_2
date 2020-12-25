@@ -1,0 +1,33 @@
+#include <stdio.h>
+long int get_fibbonachi_via_cycle(int);
+
+int main()
+{
+  int number;
+  scanf("%d", &number);
+  printf("%li", get_fibbonachi_via_cycle(number));
+
+  return 0;
+}
+
+long int get_fibbonachi_via_cycle(int number)
+{
+  long int f1 = 1;
+  long int f2 = 1;
+  long int next_number;
+  if (number <= 2)
+  {
+    return 1;
+  } 
+  else 
+  {
+    for(int i = 3; i <= number; i++) 
+    {
+      next_number = f1 + f2; 
+      f1 = f2; 
+      f2 = next_number; 
+    }
+  }
+
+  return f2;
+}
